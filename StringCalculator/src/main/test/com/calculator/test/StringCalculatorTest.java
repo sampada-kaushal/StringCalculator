@@ -23,4 +23,9 @@ public class StringCalculatorTest {
 		int res=StringCalculator.add("1,2");
 		Assert.assertEquals(3, res);
 	}
+	@Test
+	public void whenMultipleNumbersArePassed() {
+		int res=StringCalculator.add("1 ,2,5,5,10");
+		Assert.assertEquals(23, res);
+	}
 }

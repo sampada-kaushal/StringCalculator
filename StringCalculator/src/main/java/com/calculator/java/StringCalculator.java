@@ -9,8 +9,8 @@ public class StringCalculator {
 			result=0;
 		}
 		else {
-			for(String number: numArray) 
-				result+=Integer.parseInt(number);
+			for(String number: numArray) // Refactored to handle extra space for any amount of numbers
+				result+=Integer.parseInt(number.trim());
 			}
 		return result;
 	}
