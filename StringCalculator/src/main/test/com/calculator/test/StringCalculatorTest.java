@@ -28,4 +28,9 @@ public class StringCalculatorTest {
 		int res=StringCalculator.add("1 ,2,5,5,10");
 		Assert.assertEquals(23, res);
 	}
+	@Test
+	public void whenNewLineIsAlsoPassedAsDelimiter() {
+		int res=StringCalculator.add("1,2\n3\n5\n10");
+		Assert.assertEquals(21, res);
+	}
 }
