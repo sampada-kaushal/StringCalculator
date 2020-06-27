@@ -11,8 +11,16 @@ public class StringCalculatorTest {
 	@Test
 	public void whenNoNumbersArePassed() {
 		int res=StringCalculator.add("");
-		//fail("Not yet implemented");
 		Assert.assertEquals(0, res);
 	}
-
+	@Test
+	public void whenOneNumberIsPassed() {
+		int res=StringCalculator.add("1");
+		Assert.assertEquals(1, res);
+	}
+	@Test
+	public void whenTwoNumbersArePassed() {
+		int res=StringCalculator.add("1,2");
+		Assert.assertEquals(3, res);
+	}
 }
