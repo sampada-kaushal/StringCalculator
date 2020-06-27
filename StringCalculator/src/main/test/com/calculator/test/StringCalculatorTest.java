@@ -50,4 +50,9 @@ public class StringCalculatorTest {
 		Assert.assertNotNull(ex);
 		Assert.assertEquals("Negatives not allowed: [-1, -2]",ex.getMessage());
 	}
+	@Test
+	public void ignoringNumbersGreaterThanThousand() {
+		int res=StringCalculator.add("1,1001\n3");
+		Assert.assertEquals(4, res);
+	}
 }

@@ -31,8 +31,10 @@ public class StringCalculator {
 					{result += Integer.parseInt(numArray[i].trim());
 					if(Integer.parseInt(numArray[i].trim())<0) { 
 							negativeNumList.add(Integer.parseInt(numArray[i].trim())); 
-					
 					}
+					//Logic for numbers>1000
+					if(Integer.parseInt(numArray[i].trim())>1000)
+						result=result-Integer.parseInt(numArray[i].trim());
 				}
 				}
 			else {
@@ -42,6 +44,9 @@ public class StringCalculator {
 				{
 					negativeNumList.add(Integer.parseInt(number.trim())); 
 				}
+				//Logic for numbers>1000
+				if(Integer.parseInt(number.trim())>1000)
+					result=result-Integer.parseInt(number.trim());
 				}
 				}
 			
