@@ -30,7 +30,12 @@ public class StringCalculatorTest {
 	}
 	@Test
 	public void whenNewLineIsAlsoPassedAsDelimiter() {
-		int res=StringCalculator.add("1,2\n3\n5\n10");
-		Assert.assertEquals(21, res);
+		int res=StringCalculator.add("1,2\n3");
+		Assert.assertEquals(6, res);
+	}
+	@Test
+	public void whenDefaultDelimiterIsSet() {
+		int res=StringCalculator.add("//;\n1;2;3");
+		Assert.assertEquals(6, res);
 	}
 }
