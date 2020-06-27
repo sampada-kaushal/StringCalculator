@@ -38,4 +38,16 @@ public class StringCalculatorTest {
 		int res=StringCalculator.add("//;\n1;2;3");
 		Assert.assertEquals(6, res);
 	}
+	@Test
+	public void whenNegativesAreNotAllowedExceptionIsThrown() {
+		RuntimeException ex=null;
+		try {
+		StringCalculator.add("-1,-2,3");
+		}
+		catch(RuntimeException e) {
+			ex=e;
+		}
+		Assert.assertNotNull(ex);
+		Assert.assertEquals("Negatives not allowed: [-1, -2]",ex.getMessage());
+	}
 }
