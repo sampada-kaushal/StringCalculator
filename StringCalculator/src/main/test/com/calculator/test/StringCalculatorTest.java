@@ -55,4 +55,9 @@ public class StringCalculatorTest {
 		int res=StringCalculator.add("1,1001\n3");
 		Assert.assertEquals(4, res);
 	}
+	@Test
+	public void handlingDelimitersOfAnyLength() {
+		int res=StringCalculator.add("//[$$$$$]\n1$$$$$2$$$$$5");
+		Assert.assertEquals(8, res);
+	}
 }
