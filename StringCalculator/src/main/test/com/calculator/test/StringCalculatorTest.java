@@ -60,4 +60,9 @@ public class StringCalculatorTest {
 		int res=StringCalculator.add("//[$$$$$]\n1$$$$$2$$$$$5");
 		Assert.assertEquals(8, res);
 	}
+	@Test
+	public void handlingmultipleDelimitersOfAnyLength() {
+		int res=StringCalculator.add("//[%%%][*******][,,,][$$$$$]\n1%%%2*******5,,,6$$$$$10");
+		Assert.assertEquals(24, res);
+	}
 }
