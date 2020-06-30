@@ -33,34 +33,31 @@ public class StringCalculator {
 
 //Custom delimiter logic with multiple delimiters and any length		
 		else if (numbers.startsWith("//") && numbers.contains("[") && count > 1) {
-			String mulDelimiter[] = new String[100];
-			Integer lengthOfDelimiters[] = new Integer[100];
+			String mulDelimiter="";
 			String mulDelimiterTemp = "";
 			String splitString = "";
+			int  lengthOfDelimiters;
 
 			Pattern p = Pattern.compile("\\[([^\\]]+)\\]");
 			Matcher m = p.matcher(numbers);
 			while (m.find()) {
-				for (int i = 0; i < 1; i++) {
-					mulDelimiter[i] = m.group(1);
-					mulDelimiterTemp = "" + mulDelimiter[i].charAt(0);
-					lengthOfDelimiters[i] = mulDelimiter[i].length();
+					mulDelimiter = m.group(1);
+					mulDelimiterTemp = "" + mulDelimiter.charAt(0);
+					lengthOfDelimiters = mulDelimiter.length();
 
 					// Checking if delimiter entered is a meta character or not
 					final char[] escapeChars = { '<', '(', '[', '{', '\\', '^', '-', '=', '$', '!', '|', ']', '}', ')',
 							'?', '*', '+', '.', '>' };
 					for (char escapeChar : escapeChars) {
-						if (mulDelimiter[i].charAt(0) == escapeChar) {
-							mulDelimiterTemp = "\\" + mulDelimiter[i].charAt(0);
-							for (int j = 0; j < lengthOfDelimiters[i]; j++)
-								mulDelimiter[i] += mulDelimiterTemp;
-							mulDelimiter[i] = mulDelimiter[i].substring(lengthOfDelimiters[i]);
+						if (mulDelimiter.charAt(0) == escapeChar) {
+							mulDelimiterTemp = "\\" + mulDelimiter.charAt(0);
+							for (int j = 0; j < lengthOfDelimiters; j++)
+								mulDelimiter += mulDelimiterTemp;
+							mulDelimiter = mulDelimiter.substring(lengthOfDelimiters);
 						}
 					}
 
-					// System.out.println("i= "+i+" "+mulDelimiter[i]);
-					splitString += mulDelimiter[i] + "|";
-				}
+					splitString += mulDelimiter + "|";
 			}
 			splitString = splitString.substring(0, splitString.length() - 1);
 			numArray = numbers.split(splitString);

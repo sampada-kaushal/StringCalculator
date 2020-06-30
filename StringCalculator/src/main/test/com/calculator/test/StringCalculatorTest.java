@@ -62,7 +62,7 @@ public class StringCalculatorTest {
 	}
 	@Test
 	public void handlingmultipleDelimitersOfAnyLength() {
-		int res=StringCalculator.add("//[%%%][*******][,,,][$$$$$]\n1%%%2*******5,,,6$$$$$10");
-		Assert.assertEquals(24, res);
+		int res=StringCalculator.add("//[%%%][*******][,,,][$$$$$][@@]\n1%%%2*******5,,,6$$$$$10@@2");
+		Assert.assertEquals(26, res);
 	}
 }
